@@ -1,0 +1,1791 @@
+Analysis & Synthesis report for mips
+Tue Dec 19 11:01:17 2023
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "mydecoder:U3"
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++---------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Dec 19 11:01:17 2023      ;
+; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                   ; mips                                       ;
+; Top-level Entity Name           ; mips                                       ;
+; Family                          ; Cyclone V                                  ;
+; Logic utilization (in ALMs)     ; N/A                                        ;
+; Total registers                 ; 326                                        ;
+; Total pins                      ; 38                                         ;
+; Total virtual pins              ; 0                                          ;
+; Total block memory bits         ; 0                                          ;
+; Total DSP Blocks                ; 0                                          ;
+; Total HSSI RX PCSs              ; 0                                          ;
+; Total HSSI PMA RX Deserializers ; 0                                          ;
+; Total HSSI TX PCSs              ; 0                                          ;
+; Total HSSI TX Channels          ; 0                                          ;
+; Total PLLs                      ; 0                                          ;
+; Total DLLs                      ; 0                                          ;
++---------------------------------+--------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; mips               ; mips               ;
+; Family name                                                                     ; Cyclone V          ; Cyclone IV GX      ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization                                                    ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                  ;
++----------------------------------+-----------------+-----------------+----------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path           ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------+---------+
+; myfetch.vhd                      ; yes             ; User VHDL File  ; E:/COALABFILES/LAB12/myfetch.vhd       ;         ;
+; myComponents.vhd                 ; yes             ; User VHDL File  ; E:/COALABFILES/LAB12/myComponents.vhd  ;         ;
+; mydecoder.vhd                    ; yes             ; User VHDL File  ; E:/COALABFILES/LAB12/mydecoder.vhd     ;         ;
+; myControlUnit.vhd                ; yes             ; User VHDL File  ; E:/COALABFILES/LAB12/myControlUnit.vhd ;         ;
+; myDataMemory.vhd                 ; yes             ; User VHDL File  ; E:/COALABFILES/LAB12/myDataMemory.vhd  ;         ;
+; myexecution.vhd                  ; yes             ; User VHDL File  ; E:/COALABFILES/LAB12/myexecution.vhd   ;         ;
+; mips.vhd                         ; yes             ; User VHDL File  ; E:/COALABFILES/LAB12/mips.vhd          ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 522         ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 788         ;
+;     -- 7 input functions                    ; 73          ;
+;     -- 6 input functions                    ; 151         ;
+;     -- 5 input functions                    ; 93          ;
+;     -- 4 input functions                    ; 43          ;
+;     -- <=3 input functions                  ; 428         ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 326         ;
+;                                             ;             ;
+; I/O pins                                    ; 38          ;
+; Total DSP Blocks                            ; 0           ;
+; Maximum fan-out node                        ; reset~input ;
+; Maximum fan-out                             ; 379         ;
+; Total fan-out                               ; 4584        ;
+; Average fan-out                             ; 3.85        ;
++---------------------------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                          ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name    ; Library Name ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------+--------------+
+; |mips                      ; 788 (94)          ; 326 (0)      ; 0                 ; 0          ; 38   ; 0            ; |mips                  ; work         ;
+;    |myControlUnit:U2|      ; 4 (4)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |mips|myControlUnit:U2 ; work         ;
+;    |myDataMemory:U5|       ; 352 (352)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |mips|myDataMemory:U5  ; work         ;
+;    |mydecoder:U3|          ; 180 (180)         ; 256 (256)    ; 0                 ; 0          ; 0    ; 0            ; |mips|mydecoder:U3     ; work         ;
+;    |myexecution:U4|        ; 120 (120)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |mips|myexecution:U4   ; work         ;
+;    |myfetch:U1|            ; 38 (38)           ; 70 (70)      ; 0                 ; 0          ; 0    ; 0            ; |mips|myfetch:U1       ; work         ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                      ;
++------------------------------------------------------+--------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal      ; Free of Timing Hazards ;
++------------------------------------------------------+--------------------------+------------------------+
+; myDataMemory:U5|read_Data[0]                         ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[1]                         ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[2]                         ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[3]                         ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[4]                         ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[5]                         ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[6]                         ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[7]                         ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[8]                         ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[9]                         ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[10]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[11]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[12]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[13]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[14]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[15]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[16]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[17]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[18]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[19]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[20]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[21]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[22]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[23]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[24]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[25]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[26]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[27]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[28]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[29]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[30]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|read_Data[31]                        ; myControlUnit:U2|MemRead ; yes                    ;
+; myDataMemory:U5|data_mem~160                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~224                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~128                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~192                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~161                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~225                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~129                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~193                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~162                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~226                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~130                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~194                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~163                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~227                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~131                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~195                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~164                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~228                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~132                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~196                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~165                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~229                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~133                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~197                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~166                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~230                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~134                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~198                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~167                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~231                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~135                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~199                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~168                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~232                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~136                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~200                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~169                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~233                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~137                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~201                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~170                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~234                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~138                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~202                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~171                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~235                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~139                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~203                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~172                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~236                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~140                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~204                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~173                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~237                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~141                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~205                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~174                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~238                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~142                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~206                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~175                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~239                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~143                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~207                         ; rtl~3                    ; yes                    ;
+; myDataMemory:U5|data_mem~176                         ; rtl~0                    ; yes                    ;
+; myDataMemory:U5|data_mem~240                         ; rtl~1                    ; yes                    ;
+; myDataMemory:U5|data_mem~144                         ; rtl~2                    ; yes                    ;
+; myDataMemory:U5|data_mem~208                         ; rtl~3                    ; yes                    ;
+; Number of user-specified and inferred latches = 288  ;                          ;                        ;
++------------------------------------------------------+--------------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                    ;
++--------------------------------------------------------------+----------------------------------------+
+; Register name                                                ; Reason for Removal                     ;
++--------------------------------------------------------------+----------------------------------------+
+; mydecoder:U3|\reg_write:index[0..4]                          ; Lost fanout                            ;
+; mydecoder:U3|\reg_write:write_value[0..31]                   ; Lost fanout                            ;
+; myfetch:U1|instruction[1,3,4,6..12,14,15,19,20,23..25,28,30] ; Stuck at GND due to stuck port data_in ;
+; mydecoder:U3|RegFile[8][31]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][31]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][31]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][30]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][30]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][30]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][29]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][29]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][29]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][28]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][28]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][28]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][27]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][27]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][27]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][26]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][26]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][26]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][25]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][25]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][25]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][24]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][24]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][24]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][23]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][23]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][23]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][22]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][22]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][22]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][21]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][21]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][21]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][20]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][20]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][20]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][19]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][19]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][19]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][18]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][18]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][18]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][17]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][17]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][17]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][16]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][16]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][16]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][15]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][15]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][15]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][14]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][14]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][14]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][13]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][13]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][13]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][12]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][12]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][12]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][11]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][11]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][11]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][10]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][10]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][10]                                 ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][9]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][9]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][9]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][8]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][8]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][8]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][7]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][7]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][7]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][6]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][6]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][6]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][5]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][5]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][5]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][4]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][4]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][4]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][3]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][3]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][3]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][2]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][2]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][2]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][1]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][1]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][1]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[8][0]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[9][0]                                   ; Lost fanout                            ;
+; mydecoder:U3|RegFile[10][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[11][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[12][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[13][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[14][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[15][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[16][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[17][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[18][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[19][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[20][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[21][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[22][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[23][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[24][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[25][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[26][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[27][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[28][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[29][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[30][0]                                  ; Lost fanout                            ;
+; mydecoder:U3|RegFile[31][0]                                  ; Lost fanout                            ;
+; myfetch:U1|instruction[2,16]                                 ; Merged with myfetch:U1|instruction[0]  ;
+; myfetch:U1|instruction[27,31]                                ; Merged with myfetch:U1|instruction[26] ;
+; myfetch:U1|instruction[29]                                   ; Merged with myfetch:U1|instruction[18] ;
+; myfetch:U1|instruction[5,22]                                 ; Merged with myfetch:U1|instruction[13] ;
+; Total Number of Removed Registers = 831                      ;                                        ;
++--------------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 326   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 294   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 288   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; mydecoder:U3|RegFile[5][0]              ; 1       ;
+; mydecoder:U3|RegFile[7][0]              ; 1       ;
+; mydecoder:U3|RegFile[1][0]              ; 2       ;
+; mydecoder:U3|RegFile[3][0]              ; 2       ;
+; mydecoder:U3|RegFile[6][1]              ; 1       ;
+; mydecoder:U3|RegFile[7][1]              ; 1       ;
+; mydecoder:U3|RegFile[2][1]              ; 2       ;
+; mydecoder:U3|RegFile[3][1]              ; 2       ;
+; mydecoder:U3|RegFile[4][2]              ; 1       ;
+; mydecoder:U3|RegFile[5][2]              ; 1       ;
+; mydecoder:U3|RegFile[6][2]              ; 1       ;
+; mydecoder:U3|RegFile[7][2]              ; 1       ;
+; Total number of inverted registers = 12 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |mips|mydecoder:U3|Mux16   ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |mips|mydecoder:U3|Mux38   ;
+; 9:1                ; 32 bits   ; 192 LEs       ; 128 LEs              ; 64 LEs                 ; No         ; |mips|myexecution:U4|Mux56 ;
+; 8:1                ; 19 bits   ; 95 LEs        ; 95 LEs               ; 0 LEs                  ; No         ; |mips|op_signal            ;
+; 8:1                ; 9 bits    ; 45 LEs        ; 45 LEs               ; 0 LEs                  ; No         ; |mips|op_signal            ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |mips|op_signal            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mydecoder:U3"                                                                              ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; register_rd ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Tue Dec 19 11:01:13 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mips -c mips
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file myfetch.vhd
+    Info (12022): Found design unit 1: myfetch-behv
+    Info (12023): Found entity 1: myfetch
+Info (12021): Found 1 design units, including 0 entities, in source file mycomponents.vhd
+    Info (12022): Found design unit 1: myComponents
+Info (12021): Found 2 design units, including 1 entities, in source file mydecoder.vhd
+    Info (12022): Found design unit 1: mydecoder-behv
+    Info (12023): Found entity 1: mydecoder
+Info (12021): Found 2 design units, including 1 entities, in source file mycontrolunit.vhd
+    Info (12022): Found design unit 1: myControlUnit-behv
+    Info (12023): Found entity 1: myControlUnit
+Info (12021): Found 2 design units, including 1 entities, in source file mydatamemory.vhd
+    Info (12022): Found design unit 1: myDataMemory-behv
+    Info (12023): Found entity 1: myDataMemory
+Info (12021): Found 2 design units, including 1 entities, in source file myexecution.vhd
+    Info (12022): Found design unit 1: myexecution-behv
+    Info (12023): Found entity 1: myexecution
+Info (12021): Found 2 design units, including 1 entities, in source file mips.vhd
+    Info (12022): Found design unit 1: mips-behv
+    Info (12023): Found entity 1: mips
+Info (12127): Elaborating entity "mips" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at mips.vhd(37): object "register_rd" assigned a value but never read
+Info (12128): Elaborating entity "myfetch" for hierarchy "myfetch:U1"
+Info (12128): Elaborating entity "myControlUnit" for hierarchy "myControlUnit:U2"
+Info (12128): Elaborating entity "mydecoder" for hierarchy "mydecoder:U3"
+Info (12128): Elaborating entity "myexecution" for hierarchy "myexecution:U4"
+Warning (10492): VHDL Process Statement warning at myexecution.vhd(32): signal "ALUSrc" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at myexecution.vhd(39): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at myexecution.vhd(82): signal "PC4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at myexecution.vhd(83): signal "beq_control" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at myexecution.vhd(26): inferring latch(es) for signal or variable "zero", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "zero" at myexecution.vhd(26)
+Info (12128): Elaborating entity "myDataMemory" for hierarchy "myDataMemory:U5"
+Warning (10492): VHDL Process Statement warning at myDataMemory.vhd(32): signal "address" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at myDataMemory.vhd(34): signal "write_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at myDataMemory.vhd(18): inferring latch(es) for signal or variable "read_Data", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "read_Data[0]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[1]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[2]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[3]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[4]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[5]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[6]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[7]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[8]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[9]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[10]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[11]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[12]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[13]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[14]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[15]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[16]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[17]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[18]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[19]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[20]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[21]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[22]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[23]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[24]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[25]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[26]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[27]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[28]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[29]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[30]" at myDataMemory.vhd(18)
+Info (10041): Inferred latch for "read_Data[31]" at myDataMemory.vhd(18)
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "myfetch:U1|mem" is uninferred due to inappropriate RAM size
+Warning (113028): 3 out of 8 addresses are uninitialized. The Quartus II software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported.
+    Warning (113027): Addresses ranging from 5 to 7 are not initialized
+Warning (13012): Latch myDataMemory:U5|data_mem~160 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~224 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~128 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~192 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~161 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~225 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~129 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~193 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~162 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~226 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~130 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~194 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~163 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~227 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~131 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~195 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~164 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~228 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~132 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~196 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~165 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~229 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~133 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~197 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~166 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~230 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~134 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~198 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~167 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~231 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~135 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~199 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~168 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~232 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~136 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~200 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~169 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~233 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~137 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~201 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~170 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~234 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~138 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~202 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~171 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~235 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~139 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~203 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~172 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~236 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~140 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~204 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~173 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~237 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~141 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~205 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~174 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~238 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~142 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~206 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~175 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~239 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~143 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~207 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~176 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~240 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~144 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~208 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~177 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~241 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~145 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~209 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~178 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~242 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~146 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~210 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~179 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~243 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~147 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~211 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~180 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~244 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~148 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~212 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~181 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~245 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~149 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~213 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~182 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~246 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~150 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~214 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~183 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~247 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~151 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~215 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~184 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~248 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~152 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~216 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~185 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~249 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~153 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~217 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~186 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~250 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~154 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~218 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~187 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~251 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~155 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~219 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~188 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~252 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~156 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~220 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~189 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~253 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~157 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~221 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~190 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~254 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~158 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~222 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~191 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~255 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~159 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~223 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~32 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~96 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~0 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~64 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~33 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~97 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~1 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~65 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~34 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~98 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~2 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~66 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~35 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~99 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~3 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~67 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~36 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~100 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~4 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~68 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~37 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~101 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~5 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~69 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~38 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~102 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~6 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~70 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~39 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~103 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~7 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~71 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~40 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~104 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~8 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~72 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~41 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~105 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~9 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~73 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~42 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~106 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~10 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~74 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~43 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~107 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~11 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~75 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~44 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~108 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~12 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~76 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~45 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~109 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~13 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~77 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~46 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~110 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~14 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~78 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~47 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~111 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~15 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~79 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~48 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~112 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~16 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~80 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~49 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~113 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~17 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~81 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~50 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~114 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~18 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~82 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~51 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~115 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~19 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~83 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~52 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~116 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~20 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~84 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~53 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~117 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~21 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~85 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~54 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~118 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~22 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~86 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~55 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~119 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~23 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~87 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~56 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~120 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~24 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~88 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~57 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~121 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~25 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~89 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~58 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~122 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~26 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~90 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~59 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~123 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~27 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~91 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~60 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~124 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~28 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~92 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~61 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~125 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~29 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~93 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~62 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~126 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~30 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~94 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~63 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~127 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~31 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Warning (13012): Latch myDataMemory:U5|data_mem~95 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal myfetch:U1|instruction[18]
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 805 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1136 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 1098 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 524 warnings
+    Info: Peak virtual memory: 4712 megabytes
+    Info: Processing ended: Tue Dec 19 11:01:17 2023
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
+
+

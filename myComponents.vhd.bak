@@ -1,0 +1,20 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+package myComponents is
+	
+	
+	component myfetch is
+		port(
+				reset : in std_logic;
+				clock : in std_logic;
+				branch_decision : in std_logic;
+				jump_decision : in std_logic;
+				branch_addr : in std_logic_vector(31 downto 0);
+				jump_addr : in std_logic_vector(31 downto 0);
+				pc_out : out std_logic_vector(31 downto 0);
+				instruction : out std_logic_vector(31 downto 0)
+		);
+	end component;
+end myComponents;

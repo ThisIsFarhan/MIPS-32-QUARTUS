@@ -1,0 +1,61 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity myfetch is
+port(
+	reset : in std_logic;
+	clock : in std_logic;
+	branch_decision : in std_logic;
+	jump_decision : in std_logic;
+	branch_addr : in std_logic_vector(31 downto 0);
+	jump_addr : in std_logic_vector(31 downto 0);
+	pc_out : out std_logic_vector(31 downto 0);
+	instruction : out std_logic_vector(31 downto 0)
+);
+end myfetch;
+
+architecture behv of myfetch is
+type mem_array is array(0 to 15) of std_logic_vector(31 downto 0);
+begin
+
+	process(clock, reset)
+	variable mem: mem_array := (
+			X"00000000",
+			X"11111111",
+			X"22222222",
+			X"33333333",
+			X"44444444",
+			X"55555555",
+			X"66666666",
+			X"77777777",
+			X"88888888",
+			X"99999999",
+			X"aaaaaaaa",
+			X"bbbbbbbb",
+			X"cccccccc",
+			X"dddddddd",
+			X"eeeeeeee",
+			X"ffffffff"
+	);
+	variable PC : std_logic_vector(31 downto 0) := X"00000000";
+	variable index : integer := 0;
+	begin
+		if(clock 'event and clock = '1') then
+			if(reset = '1') then
+				PC := X"00000000";
+				instruction <= X"00000000";
+			elsif (branch_decision = '1') then
+				PC := branch_addr;
+			elsif (jump_decision = '1') then
+				PC := jump_addr;
+			
+			end if;
+			index := to_integer(unsigned(PC(3 downto 0)));
+			PC := PC + X"1";
+			PC_out <= PC;
+			instruction <= mem(index);
+		end if;
+	end process;
+end behv;
